@@ -5,3 +5,4 @@ export const components: any[] = [ButtonAComponent, ButtonBComponent];
 
 export * from './button-a/button-a.component';
 export * from './button-b/button-b.component';
+
