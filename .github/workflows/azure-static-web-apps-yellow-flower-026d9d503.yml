@@ -25,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: $NODE_VERSION
+          node-version: ${{ env.NODE_VERSION }}
       # Install dependencies
       - run: npm ci
       # Run tests
@@ -40,7 +40,7 @@ jobs:
       - name: Install node
         uses: actions/setup-node@v2
         with:
-            node:version: $NODE_VERSION
+            node:version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
         run: npm install       
       - name: Cypress run
