@@ -1,0 +1,89 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "internal", ["index", "sibling", "parent", "object"]],
+            // default is builtin, external; but we want to divide up externals into groups also
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            // define material-ui group that will appear separately after other main externals
+            "pathGroups": [{ "pattern": "@material-ui/**", "group": "external", "position": "after" }],
+            "newlines-between": "always-and-inside-groups",
+            "alphabetize": { "order": "asc", "caseInsensitive": true }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ],
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"]
+      },
+      "typescript": {}
+    }
+  }
+}

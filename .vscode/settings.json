@@ -1,11 +1,7 @@
 {
-  "[typescript]": {
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    }
-  },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   "eslint.validate": ["javascript", "typescript"],
   "workbench.tree.indent": 20,
@@ -16,4 +12,9 @@
   },
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modifications",
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "stylelint.validate": [ "scss"]
 }
