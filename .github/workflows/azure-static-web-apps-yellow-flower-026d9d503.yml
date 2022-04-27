@@ -10,8 +10,42 @@ on:
       - main
 
 jobs:
+  unit_test_job:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      # Install Node 12
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      # Install dependencies
+      - run: npm install
+      # Run tests
+      - run: npm test
+
+  e2e_test_job:
+    name: Run end to end tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
+
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    needs:
+      - unit_test_job
+      - e2e_test_job
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')  
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
