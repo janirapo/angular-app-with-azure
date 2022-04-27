@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/*
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -17,15 +18,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      # Install Node 12
+      # Install Node 16
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
       # Install dependencies
-      - run: npm install
+      - run: npm ci
       # Run tests
-      - run: npm test
+      - run: npm test:prod
 
   e2e_test_job:
     name: Run end to end tests
