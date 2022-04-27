@@ -15,7 +15,8 @@
     "cypress:run": "cypress run",
     "format:prettier": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html,css,scss}' --write",
     "lint:eslint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html,css}' --quiet --fix",
-    "lint": "npm run format:prettier && npm run lint:eslint"
+    "lint:stylelint": "npx stylelint '**/*.scss'",
+    "lint": "npm run format:prettier && npm run lint:eslint && npm run lint:stylelint"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +61,10 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "prettier": "^2.6.2",
+    "stylelint": "^14.8.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^3.0.0",
     "typescript": "~4.6.2"
   }
 }
