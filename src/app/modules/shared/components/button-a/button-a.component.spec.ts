@@ -20,4 +20,17 @@ describe('ButtonAComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render text', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('button')?.textContent).toContain(
+      'button-a works!'
+    );
+  });
+
+  it('should be raised button', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const btn = compiled.querySelector('button');
+    expect(btn?.hasAttribute('mat-raised-button')).toBeTruthy();
+  });
 });
