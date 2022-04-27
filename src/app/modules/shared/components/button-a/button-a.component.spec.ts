@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { ButtonAComponent } from './button-a.component';
 
 describe('ButtonAComponent', () => {
@@ -24,7 +25,7 @@ describe('ButtonAComponent', () => {
   it('should render text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('button')?.textContent).toContain(
-      'button-a works!'
+      'button-a works!',
     );
   });
 
