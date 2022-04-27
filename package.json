@@ -16,7 +16,8 @@
     "format:prettier": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html,css,scss}' --write",
     "lint:eslint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html,css}' --quiet --fix",
     "lint:stylelint": "npx stylelint '**/*.scss'",
-    "lint": "npm run format:prettier && npm run lint:eslint && npm run lint:stylelint"
+    "lint": "npm run format:prettier && npm run lint:eslint && npm run lint:stylelint",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +55,7 @@
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
