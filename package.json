@@ -16,7 +16,7 @@
     "format:prettier": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html,css,scss}'",
     "format:prettier:fix": "npm run format:prettier -- --write",
     "lint:eslint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html,css}' --quiet",
-    "lint:eslint:fix": "npm run lint:eslint --quiet --fix",
+    "lint:eslint:fix": "npm run lint:eslint --fix",
     "lint:stylelint": "npx stylelint '**/*.scss'",
     "lint": "npm run format:prettier && npm run lint:eslint && npm run lint:stylelint",
     "prepare": "husky install"
