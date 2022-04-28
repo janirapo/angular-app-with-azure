@@ -78,7 +78,8 @@
   "env": {
     "jest": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jasmine": true
   },
   "settings": {
     "import/resolver": {

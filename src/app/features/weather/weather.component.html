@@ -3,7 +3,7 @@
 
   <table *ngFor="let row of weatherInfo | keyvalue">
     <tr>
-      <td>{{ row.key.charAt(0).toUpperCase() + row.key.slice(1) }}:</td>
+      <td>{{ row.key.charAt(0).toUpperCase() + row.key.slice(1) }}</td>
       <td>{{ row.value }}</td>
     </tr>
   </table>

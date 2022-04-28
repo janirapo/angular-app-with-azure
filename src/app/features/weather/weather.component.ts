@@ -32,10 +32,10 @@ export class WeatherComponent implements OnInit {
   getWeather(): void {
     this.weatherService
       .getWeather()
-      .subscribe((response) => this.setWeatherInfo(response));
+      .subscribe((response) => response && this.setWeatherInfo(response));
   }
 
-  private setWeatherInfo(apiResponse?: WeatherApiResponse): void {
+  private setWeatherInfo(apiResponse: WeatherApiResponse): void {
     if (!apiResponse) {
       return;
     }

@@ -45,7 +45,7 @@ export class WeatherService {
   }
 
   /** GET weather from the server */
-  getWeather(): Observable<WeatherApiResponse | undefined> {
+  getWeather(): Observable<WeatherApiResponse | null> {
     const options = {
       params: new HttpParams()
         .set('q', this.weatherLocation)
@@ -54,6 +54,6 @@ export class WeatherService {
 
     return this.http
       .get<WeatherApiResponse>(this.weatherUrl, options)
-      .pipe(catchError(this.handleError('getWeather', undefined)));
+      .pipe(catchError(this.handleError('getWeather', null)));
   }
 }
