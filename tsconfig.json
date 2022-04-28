@@ -18,14 +18,16 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
+    "emitDecoratorMetadata": false,
     "lib": [
       "es2020",
       "dom"
     ],
     "paths": {
       "@env": ["environments/environment"],
-      "@shared/*": ["app/modules/shared/*"],
-      "@core/*": ["app/modules/core/*"]
+      "@shared/*": ["app/shared/*"],
+      "@core/*": ["app/core/*"],
+      "@features/*": ["app/features/*"]
     }
   },
   "angularCompilerOptions": {
