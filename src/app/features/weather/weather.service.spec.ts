@@ -10,7 +10,6 @@ import { HttpErrorHandlerService, MessageService } from '@core/services';
 import { WeatherService, WeatherApiResponse } from './weather.service';
 
 describe('WeatherService', () => {
-  let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
   let weatherService: WeatherService;
 
@@ -24,8 +23,7 @@ describe('WeatherService', () => {
 
     // Inject the http, test controller, and service-under-test
     // as they will be referenced by each test.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    httpClient = TestBed.inject(HttpClient);
+    TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
     weatherService = TestBed.inject(WeatherService);
   });
@@ -65,7 +63,8 @@ describe('WeatherService', () => {
 
       // WeatherService should have made one request to GET weather from expected URL
       const req = httpTestingController.expectOne(
-        (req) => req.method === 'GET' && req.url === weatherService.weatherUrl,
+        (request) =>
+          request.method === 'GET' && request.url === weatherService.weatherUrl,
       );
       expect(req.request.method).toEqual('GET');
 
@@ -81,7 +80,8 @@ describe('WeatherService', () => {
       });
 
       const req = httpTestingController.expectOne(
-        (req) => req.method === 'GET' && req.url === weatherService.weatherUrl,
+        (request) =>
+          request.method === 'GET' && request.url === weatherService.weatherUrl,
       );
       req.flush(null); // Respond with null
     });
@@ -95,7 +95,8 @@ describe('WeatherService', () => {
       });
 
       const req = httpTestingController.expectOne(
-        (req) => req.method === 'GET' && req.url === weatherService.weatherUrl,
+        (request) =>
+          request.method === 'GET' && request.url === weatherService.weatherUrl,
       );
 
       // respond with a 404 and the error message in the body
