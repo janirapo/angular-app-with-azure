@@ -1,8 +1,12 @@
 <div *ngIf="weatherInfo; else noInfo">
   <h2>{{ weatherInfo.place }}</h2>
 
-  <table *ngFor="let row of weatherInfo | keyvalue">
+  <table aria-label="Weather">
     <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+    <tr *ngFor="let row of weatherInfo | keyvalue">
       <td>{{ row.key.charAt(0).toUpperCase() + row.key.slice(1) }}</td>
       <td>{{ row.value }}</td>
     </tr>

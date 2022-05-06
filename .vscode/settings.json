@@ -17,5 +17,14 @@
   "scss.validate": false,
   "stylelint.enable": true,
   "stylelint.validate": [ "scss"],
-  "prettier.semi": false,
+  "eslint.format.enable": true, 
+  "[html]": {
+    "editor.formatOnSaveMode": "file",
+    "editor.defaultFormatter": "vscode.html-language-features",
+  },
+  "html.suggest.html5": true,
+  "html.autoClosingTags": true,
+  "html.format.enable": true,
+  "editor.wordWrap": "off",
+  "html.format.indentInnerHtml": true
 }
