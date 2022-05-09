@@ -1,4 +1,8 @@
-# AngularApp
+# angular-app-with-azure
+
+This is a simple proof of concept angular application that is deployed as a static web app via GitHub actions.
+
+The aim of the PoC is just to get a bit more acquainted with Angular and it's features, and to actually test out some of the different stuff found in various tutorials.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
