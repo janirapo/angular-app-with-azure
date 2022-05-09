@@ -49,6 +49,7 @@ export class WeatherService {
     const options = {
       params: new HttpParams()
         .set('q', this.weatherLocation)
+        .set('units', 'metric')
         .set('APPID', this.apiKey),
     };
 

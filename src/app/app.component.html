@@ -1,26 +1,20 @@
 <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+    aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <a routerLink="/" mat-menu-item>Home</a>
+    <a routerLink="/weather" mat-menu-item>Weather</a>
+  </mat-menu>
 
   <span id="title">My App</span>
   <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
@@ -28,4 +22,4 @@
 <app-button-a></app-button-a>
 <app-button-b></app-button-b>
 
-<app-weather></app-weather>
+<router-outlet></router-outlet>
